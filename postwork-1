@@ -3,17 +3,17 @@
 # española a R, los datos los puedes encontrar en el siguiente enlace: 
 # https://www.football-data.co.uk/spainm.php
 
-#Cargamos el archivo
+# Cargamos el archivo
 datos<-read.csv("https://www.football-data.co.uk/mmz4281/1920/SP1.csv")
 
 # Del data frame que resulta de importar los datos a R, extrae las columnas que contienen 
 # los números de goles anotados por los equipos que jugaron en casa (FTHG) y los goles anotados
 # por los equipos que jugaron como visitante (FTAG)
-#Consulta cómo funciona la función table en R al ejecutar en la consola ?table
+# Consulta cómo funciona la función table en R al ejecutar en la consola ?table
 goles<-data.frame(datos[,"FTHG"],datos[,"FTAG"])
 colnames(goles)<-(c("FTHG","FTAG"))
 
-#Posteriormente elabora tablas de frecuencias relativas para estimar las siguientes probabilidades:
+# Posteriormente elabora tablas de frecuencias relativas para estimar las siguientes probabilidades:
 # La probabilidad (marginal) de que el equipo que juega en casa anote x goles (x = 0, 1, 2, ...)
 marginal.ftgh<-table(goles[,1])/dim(goles)[1]
 
