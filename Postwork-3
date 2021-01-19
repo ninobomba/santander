@@ -28,7 +28,7 @@ barplot(marginal.ftag,main="Equipo visitante",xlab="Goles",
 
 
 # Un HeatMap para las probabilidades conjuntas estimadas de los números de goles que anotan 
-# el equipo de casa y el equipo visitante en un partido.
+# el equipo de casa y el equipo visitante en un partido
 library(ggplot2)
 datos<-as.data.frame(conjunta)
 
