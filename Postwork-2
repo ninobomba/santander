@@ -28,7 +28,7 @@ lista<-lapply(lista,select,Date, HomeTeam:FTR)
 str(lista[1]);str(lista[2]);str(lista[3]) #verificamos que sean del mismo tipo
 
 #Cambiamos el tipo de dato para Date y le damos el mismo formato a los 3 data frames
-lista<-lapply(lista,mutate,Date=as.Date(Date,"%y/%m/%d"))
+lista<-lapply(lista,mutate,Date=as.Date(Date,"%d/%m/%y"))
 
 #Con ayuda de la función rbind forma un único data frame que contenga las seis columnas 
 #mencionadas en el punto 3 (Hint 2: la función do.call podría ser utilizada).
