@@ -29,7 +29,7 @@ for (i in 1:9){
 
 #fijamos una semilla para poder reproducir la muestra
 set.seed(2020)
-#10,000 muestras de tamaño 10
+#10,000 muestras de tamaño 63
 muestras.boostrap<-sapply(X = rep(63,10000), FUN = sample,x=a,replace=T,prob=rep(1/63,63))
 media<-apply(muestras.boostrap,2,mean)
 xbarra<-mean(media)
