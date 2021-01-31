@@ -29,26 +29,32 @@ for (i in 1:9){
 
 #fijamos una semilla para poder reproducir la muestra
 set.seed(2020)
-#10,000 muestras de tamaño 63
-muestras.boostrap<-sapply(X = rep(63,10000), FUN = sample,x=a,replace=T,prob=rep(1/63,63))
-media<-apply(muestras.boostrap,2,mean)
-xbarra<-mean(media)
-#histograma de la media
-library(ggplot2)
+#10,000 muestras con reemplazo de tamaño 63
+muestras.boostrap<-sapply(X = rep(63,10000), FUN = sample,x=a,replace=T)
+#obtenemos las medias de las muestras creadas
+medias<-apply(muestras.boostrap,2,mean)
+#media estimada
+xbarra<-mean(medias)
 
-ggplot()+geom_histogram(aes(x = media), bins = 50, color = "black", fill ="yellow")+
+#Comparamos la media de la muestra contra la media estimada
+mean(a);xbarra
+
+#histograma de la distribución de la media
+library(ggplot2)
+ggplot()+geom_histogram(aes(x = medias), bins = 50, color = "black", fill ="yellow")+
   geom_vline(xintercept = xbarra, size =1, color = "darkred")
 
-sd(media) #desviación de medias
-
+#desviación estimada
+desviacion<-sqrt(sum((medias-xbarra)^2)/(nrow(muestras.boostrap)-1)) #desviación de la media
+desviacion
 
 library(moments)
-skewness(media)#Coeficiente de asimetria
-kurtosis(media)#Kurtosis
+skewness(medias)#Coeficiente de asimetria
+kurtosis(medias)#Kurtosis
 
-#Analizando los datos obtenidos podemos notar que tenemos una distribución 
-#asimétrica positiva es decir, los datos se concentran a la izquierda y tienen colas ligeras
-#por lo que podriamos suponer que no es una distribución normal.
+#Podemos concluir con los valores obtenidos en la media,la curtosis y el coeficiente
+#de asimetria asi como por el histograma obtenido que la media sigue una distribución
+#normal.
 
 #En general observamos que los cocientes obtenidos tienen un comportamiento extraño, sin embargo
 #estableciendo un rango de .1 podríamos suponer que los valores tienden a 1 y asi suponer 
