@@ -9,6 +9,7 @@ datos<-read.csv("https://raw.githubusercontent.com/beduExpert/Programacion-con-R
 #str(datos)
 
 # Se hace la conexión con MongoDB y se crea la base de datos y la colección
+#borramos  el usuario y la contraseña por privacidad, pero se agregan capturas de pantalla de la conexión en el cuestionario.
 mongodb <- mongo(collection = "match", db = "match_games", url = "mongodb+srv://UserBD:<password>@cluster0.gcwaw.mongodb.net/test")
 
 
