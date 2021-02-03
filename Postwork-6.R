@@ -83,3 +83,15 @@ serie <- ts(j$promedios, st = c(2010, 8),
 # Grafica la serie de tiempo.
 ts.plot(serie,main="Goles promedio mensuales",xlab="Periodo",ylab="Promedio",
         col="Purple")
+
+
+#Originalmente habiamos hecho esta porque venian especificadas uns fechas de corte 
+# de aagosto de 2017 a diciembre 2019
+# Crea la serie de tiempo del promedio por mes de la suma de goles hasta diciembre de 2019.
+serie <- ts(j$promedios, st = c(2017, 8), # A partir de agosto 2017
+             frequency = 12,end=c(2019,12)) # Hasta diciembre de 2019
+
+
+# Grafica la serie de tiempo.
+ts.plot(serie,main="Goles promedio mensuales",xlab="Periodo",ylab="Promedio",
+        col="Purple")
