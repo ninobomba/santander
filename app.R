@@ -85,8 +85,8 @@ ui <-
 server <- function(input, output) {
     library(ggplot2)
     library(dplyr)
-    match.data=read.csv("c:/Users/Ángelica/Desktop/SEMESTRE EN LINEA/bedu/modulo 2/POSTWORK/postwork 8/match.data.csv")
-    data = read.csv("c:/Users/Ángelica/Desktop/SEMESTRE EN LINEA/bedu/modulo 2/POSTWORK/postwork 8/data.csv", header = T)
+    match.data=read.csv("www/match.data.csv")
+    data = read.csv("www/data.csv", header = T)
     data<-dplyr::rename(data,HomeScore="FTHG",AwayScore="FTAG")
     
     output$plot <- renderPlot({
@@ -111,5 +111,6 @@ server <- function(input, output) {
     
 }
 
+#Link del Dashboard:  https://danielmonsivais.shinyapps.io/Postwork-8/
 
 shinyApp(ui, server)
